@@ -61,7 +61,7 @@ pixi --version
 1. **Clone and navigate to the repository:**
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/smallpondtom/PolyMORpy.git
    cd PolyMORpy
    ```
 

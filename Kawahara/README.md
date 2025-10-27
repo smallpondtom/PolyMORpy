@@ -79,7 +79,7 @@ One of the key features is the ability to update parameters after initialization
 
 ```python
 # Create solver with initial parameters
-solver = KawaharaSolver(mu=1.0, delta=0.15, conservation_type='NC')
+solver = KawaharaModel(mu=1.0, delta=0.15, conservation_type='NC')
 
 # Solve with initial parameters
 u1 = solver.solve(u0)
@@ -101,7 +101,7 @@ u2 = solver.solve(u0)
 Standard centered difference for -u∂u/∂x:
 
 ```python
-solver = KawaharaSolver(conservation_type='NC')
+solver = KawaharaModel(conservation_type='NC')
 ```
 
 - Simple and fast
@@ -112,7 +112,7 @@ solver = KawaharaSolver(conservation_type='NC')
 Mass-preserving formulation:
 
 ```python
-solver = KawaharaSolver(conservation_type='C')
+solver = KawaharaModel(conservation_type='C')
 ```
 
 - Preserves total mass: ∫u dx = constant
@@ -123,7 +123,7 @@ solver = KawaharaSolver(conservation_type='C')
 Energy-preserving formulation:
 
 ```python
-solver = KawaharaSolver(conservation_type='EP')
+solver = KawaharaModel(conservation_type='EP')
 ```
 
 - Preserves energy in absence of diffusion

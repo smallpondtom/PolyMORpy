@@ -120,7 +120,7 @@ def default_feature_map(reduced_data_points):
 _quadratic_map = default_feature_map
 
 #%%
-class KawaharaSolver:
+class KawaharaModel:
     """
     Kawahara equation solver with periodic boundary conditions.
     
@@ -548,14 +548,14 @@ if __name__ == "__main__":
     print("=" * 70)
     
     # Create solver
-    solver = KawaharaSolver(
+    solver = KawaharaModel(
         spatial_domain=(0.0, 50.0),
         time_domain=(0.0, 300.0),
         nx=512,
         dt=0.01,
-        mu=1.0,  # you want to keep mu near 1.0 (it'll go very chaotic if small)
-        delta=0.05,  # you want to keep delta small (e.g., 0.05)
-        nu=0.001,  # you also want to keep nu small (e.g., 0.001)
+        mu=1.0,  
+        delta=0.05, 
+        nu=0.001, 
         conservation_type='NC', 
         dispersion_order=8
     )

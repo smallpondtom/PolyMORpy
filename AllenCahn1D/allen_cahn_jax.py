@@ -110,7 +110,7 @@ def _make_cubic_mapping_jax(max_r=200):
 _cubic_map, _diagonal_positions = _make_cubic_mapping_jax(max_r=200)
 
 #%%
-class AllenCahnSolver:
+class AllenCahnModel:
     """
     Allen-Cahn PDE solver with periodic boundary conditions.
     Uses Semi-Implicit Crank-Nicolson (SICN) or Crank-Nicolson Adam-Bashforth (CNAB) time integration.
@@ -378,7 +378,7 @@ if __name__ == "__main__":
     # Example: Solve Allen-Cahn equation
     print("Setting up Allen-Cahn solver...")
     
-    solver = AllenCahnSolver(
+    solver = AllenCahnModel(
         spatial_domain=(0.0, 1.0),
         time_domain=(0.0, 1.0),
         dx=0.01,

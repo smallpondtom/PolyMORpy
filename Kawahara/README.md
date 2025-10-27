@@ -3,6 +3,8 @@
 A compact and efficient Python implementation of the Kawahara (dispersively-modified Kuramoto-Sivashinsky) equation solver using JAX.
 
 ![Kawahara Equation Dynamics](figures/kawahara_solution.png)
+![Kawahara Dispersion Comparison](figures/kawahara_dispersion_comparison.png)
+![Kawahara Energy and Mass Conservation](figures/kawahara_energy_mass.png)
 
 ## Overview
 
@@ -187,7 +189,7 @@ Crank-Nicolson Adams-Bashforth (CNAB):
 ## Running the Demos
 
 ```bash
-pixi run python kawahara_jax.py
+pixi run python kawahara_examples.py
 ```
 
 ## Mathematical Background

@@ -3,6 +3,8 @@
 A compact and efficient Python implementation of the Allen-Cahn equation solver using JAX, converted from Julia code implementation in [PolynomialModelReduction.jl](https://github.com/smallpondtom/PolynomialModelReductionDataset.jl/blob/main/src/1D/AllenCahn.jl). Additional resources are in this [doc](https://smallpondtom.github.io/PolynomialModelReductionDataset.jl/stable/1D/allencahn/).
 
 ![Allen-Cahn Equation Visualization](figures/allen_cahn_solution.png)
+![Allen-Cahn Phase Separation](figures/phase_separation.png)
+![Allen-Cahn Method Comparison](figures/method_comparison.png)
 
 ## Overview
 
@@ -41,7 +43,7 @@ pixi shell --environment cuda
 ## Running the code
 
 ```bash
-pixi run python allen_cahn_jax.py
+pixi run python allen_cahn_examples.py
 ```
 
 ## Algorithm Details

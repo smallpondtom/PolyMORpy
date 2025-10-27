@@ -1,4 +1,4 @@
-# 1D Viscous Burgers' Equation Solver in JAX
+# 1D Viscous Burgers' Equation Solver (JAX Implementation)
 
 A high-performance, JIT-compiled solver for the viscous Burgers' equation using JAX. This is a Python converted code of the original Julia implementation from [PolynomialModelReductionDataset.jl](https://github.com/smallpondtom/PolynomialModelReductionDataset.jl/blob/main/src/1D/Burgers.jl). For more details, see the [doc](https://smallpondtom.github.io/PolynomialModelReductionDataset.jl/stable/1D/burgers/).
 

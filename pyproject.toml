@@ -1,0 +1,20 @@
+[project]
+name = "PolyMORpy"
+version = "0.1.0"
+
+[tool.pixi.workspace]
+channels = ["conda-forge", "nvidia"]
+platforms = ["linux-64", "osx-arm64"]
+
+[tool.pixi.feature.cuda]
+system-requirements = {cuda = "12"} 
+
+[tool.pixi.dependencies]
+jax = ">=0.7.2,<0.8"
+jaxlib = ">=0.7.2,<0.8"
+jupyter = ">=1.1.1,<2"
+matplotlib = ">=3.10.7,<4"
+
+# Environments
+[tool.pixi.environments]
+cuda = ["cuda"] 

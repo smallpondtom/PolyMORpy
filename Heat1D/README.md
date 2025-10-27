@@ -91,7 +91,7 @@ Run the examples file to see:
 5. **Stability analysis**: Numerical stability for different time steps
 
 ```bash
-pixi run python heat1d_jax.py
+pixi run python heat1d_examples.py
 ```
 
 ## Performance Considerations

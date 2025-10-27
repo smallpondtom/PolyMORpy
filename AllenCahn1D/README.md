@@ -19,8 +19,7 @@ where:
 
 ## Key Features
 
-✅ **Compact & Readable**: ~400 lines of clean, well-documented code  
-✅ **Mathematically Correct**: Proper unique cubic Kronecker product (matches Julia's UniqueKronecker.jl)  
+✅ **Optimized Kronecker Products**: Proper unique cubic Kronecker product (matches Julia's UniqueKronecker.jl)  
 ✅ **JAX-Powered**: JIT compilation for speed, GPU-ready  
 ✅ **Two Time Integrators**:
    - SICN (Semi-Implicit Crank-Nicolson)
@@ -31,12 +30,12 @@ where:
 ## Installation
 
 ```bash
-pip install jax jaxlib numpy matplotlib
+pixi shell
 ```
 
 For GPU support:
 ```bash
-pip install jax[cuda12]  # or jax[cuda11]
+pixi shell --environment cuda
 ```
 
 ## Running the code

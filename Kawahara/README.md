@@ -62,13 +62,13 @@ where:
 ## Installation
 
 ```bash
-pip install jax jaxlib numpy matplotlib
+pixi shell 
 ```
 
 For GPU support:
 
 ```bash
-pip install jax[cuda12]  # or jax[cuda11]
+pixi shell --environment cuda
 ```
 
 ## Dynamic Parameter Updates

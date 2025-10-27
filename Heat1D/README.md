@@ -1,8 +1,6 @@
 # 1D Heat Equation (JAX Implementation)
 
-A JAX-based implementation of the 1D Heat Equation solver with multiple boundary conditions and integration schemes, converted from the original Julia code in 
-[PolynomialModelReductionDataset.jl](https://github.com/smallpondtom/PolynomialModelReductionDataset.jl/blob/main/src/1D/Heat1D.jl). For more details,
-see this [doc](https://smallpondtom.github.io/PolynomialModelReductionDataset.jl/stable/1D/heat1d/).
+A JAX-based implementation of the 1D Heat Equation solver with multiple boundary conditions and integration schemes, converted from the original Julia code in [PolynomialModelReductionDataset.jl](https://github.com/smallpondtom/PolynomialModelReductionDataset.jl/blob/main/src/1D/Heat1D.jl). For more details, see this [doc](https://smallpondtom.github.io/PolynomialModelReductionDataset.jl/stable/1D/heat1d/).
 
 ![Heat1D Example](figures/heat1d_solution.png)
 ![Heat1D different parameters](figures/heat1d_parameter_update.png)
@@ -11,6 +9,7 @@ see this [doc](https://smallpondtom.github.io/PolynomialModelReductionDataset.jl
 ## Features
 
 ### Boundary Conditions
+
 - **Periodic**: Solution wraps around at boundaries
 - **Dirichlet**: Fixed values at boundaries
 - **Neumann**: Fixed flux (derivative) at boundaries  
@@ -18,11 +17,13 @@ see this [doc](https://smallpondtom.github.io/PolynomialModelReductionDataset.jl
 - **Robin**: Linear combination of value and derivative
 
 ### Integration Schemes
+
 - **Forward Euler**: Explicit, simple but conditionally stable (r ≤ 0.5)
 - **Backward Euler**: Implicit, unconditionally stable
 - **Crank-Nicolson**: Semi-implicit, second-order accurate, unconditionally stable
 
 ### Key Capabilities
+
 - JIT compilation for performance
 - Vectorized operations using JAX
 - Support for parameter sweeps
@@ -32,11 +33,13 @@ see this [doc](https://smallpondtom.github.io/PolynomialModelReductionDataset.jl
 ## Mathematical Formulation
 
 The 1D heat equation:
-```
+
+```plain
 ∂u/∂t = μ ∂²u/∂x²
 ```
 
 where:
+
 - `u(x,t)` is the temperature/concentration
 - `μ` is the diffusion coefficient
 - `x` is the spatial coordinate
@@ -84,6 +87,7 @@ solution = model.integrate_model(
 ## Validation Tests
 
 Run the examples file to see:
+
 1. **All boundary conditions**: Visual comparison of different BC types
 2. **Integration scheme comparison**: Forward Euler vs Backward Euler vs Crank-Nicolson
 3. **Parameter sweeps**: Effects of varying diffusion coefficients
@@ -104,7 +108,8 @@ pixi run python heat1d_examples.py
 ## Stability Criteria
 
 For Forward Euler, the stability criterion is:
-```
+
+```plain
 r = μΔt/Δx² ≤ 0.5
 ```
 
@@ -120,4 +125,4 @@ pip install jax jaxlib numpy matplotlib
 
 - Original Julia implementation from smallpondtom/PolynomialModelReductionDataset.jl
 - Finite difference methods for PDEs
-- JAX documentation: https://jax.readthedocs.io/
+- JAX documentation: [https://jax.readthedocs.io/](https://jax.readthedocs.io/)

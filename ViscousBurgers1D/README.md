@@ -1,4 +1,4 @@
-# Viscous Burgers' Equation Solver in JAX
+# 1D Viscous Burgers' Equation Solver in JAX
 
 A high-performance, JIT-compiled solver for the viscous Burgers' equation using JAX. This is a Python converted code of the original Julia implementation from [PolynomialModelReductionDataset.jl](https://github.com/smallpondtom/PolynomialModelReductionDataset.jl/blob/main/src/1D/Burgers.jl). For more details, see the [doc](https://smallpondtom.github.io/PolynomialModelReductionDataset.jl/stable/1D/burgers/).
 
@@ -6,14 +6,14 @@ A high-performance, JIT-compiled solver for the viscous Burgers' equation using 
 ![Burgers with control](figures/burgers_example2.png)
 ![Burgers shock formation](figures/burgers_example5.png)
 
-
 ## Equation
 
-```
+```plain
 ∂u/∂t = μ ∂²u/∂x² - u ∂u/∂x
 ```
 
 Where:
+
 - `u(x,t)` is the velocity field
 - `μ` is the viscosity/diffusion coefficient
 - The first term is diffusion (linear)
@@ -22,25 +22,30 @@ Where:
 ## Features
 
 ✅ **Multiple Conservation Types:**
+
 - **NC (Non-Conservative)**: Standard form `-u ∂u/∂x`
 - **C (Conservative)**: Conservative form `-∂(u²/2)/∂x`
 - **EP (Energy Preserving)**: Energy-preserving discretization
 
 ✅ **Boundary Conditions:**
+
 - Periodic boundary conditions
 - Dirichlet boundary conditions (with optional control)
 
 ✅ **Performance:**
+
 - JIT-compiled with JAX for speed
 - GPU-compatible (automatically uses GPU if available)
 - Efficient sparse matrix operations
 
 ✅ **Easy Parameter Updates:**
+
 - Update viscosity μ on the fly
 - Operators automatically rebuild
 - No need to recreate model
 
 ✅ **Control Inputs:**
+
 - Support for boundary control in Dirichlet case
 - Flexible control matrix structure
 
@@ -51,6 +56,7 @@ pip install jax jaxlib numpy matplotlib
 ```
 
 For GPU support:
+
 ```bash
 pip install jax[cuda12]  # For CUDA 12
 ```
@@ -160,6 +166,7 @@ BurgersModel(
 ```
 
 **Parameters:**
+
 - `spatial_domain`: (x_min, x_max) spatial extent
 - `time_domain`: (t_min, t_max) temporal extent
 - `dx`: Spatial grid spacing
@@ -206,11 +213,13 @@ Update viscosity and rebuild operators.
 ### Boundary Conditions
 
 **Periodic:**
+
 - `u(0, t) = u(L, t)`
 - Suitable for wave-like phenomena
 - No boundary control
 
 **Dirichlet:**
+
 - Fixed values at boundaries
 - Supports control input
 - Control matrix `B` available
@@ -227,6 +236,7 @@ See `burgers_examples.py` for comprehensive examples:
 6. **Convenience function**: One-liner solving
 
 Run examples:
+
 ```bash
 pixi run python burgers_examples.py
 ```
@@ -237,11 +247,12 @@ pixi run python burgers_examples.py
 
 The solver uses a semi-implicit (or linearly implicit) Euler scheme:
 
-```
+```plain
 (I - Δt A) u^{n+1} = u^n + Δt F(u^n ⊗ u^n) + Δt B c^{n+1}
 ```
 
 Where:
+
 - `A` is the linear (diffusion) operator
 - `F` is the quadratic (advection) operator
 - `⊗` denotes the unique Kronecker product
@@ -249,6 +260,7 @@ Where:
 - `c` is the control input
 
 This scheme:
+
 - Treats diffusion implicitly (stable for large Δt)
 - Treats advection explicitly (preserves nonlinearity)
 - Requires solving a linear system at each step
@@ -257,7 +269,7 @@ This scheme:
 
 For the quadratic term, we use a "unique" Kronecker product that avoids redundancy:
 
-```
+```plain
 u ⊗ u = [u₁², u₁u₂, u₁u₃, ..., u₂², u₂u₃, ..., uₙ²]ᵀ
 ```
 
@@ -266,7 +278,8 @@ This has dimension `N(N+1)/2` instead of `N²`.
 ### Spatial Discretization
 
 **Second-order central differences** for diffusion:
-```
+
+```plain
 ∂²u/∂x² ≈ (u_{i+1} - 2u_i + u_{i-1}) / Δx²
 ```
 

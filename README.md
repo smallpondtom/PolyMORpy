@@ -14,10 +14,11 @@ PolyMORpy contains efficient implementations of benchmark PDEs commonly used in 
 
 | PDE | Location | Status | Features |
 |-----|----------|--------|----------|
-| **Heat** | `Heat1D/` | ✅ Complete | Classic parabolic PDE |
+| **1D Heat** | `Heat1D/` | ✅ Complete | Classic parabolic PDE |
 | **Viscous Burgers** | `ViscousBurgers1D/` | ✅ Complete | Nonlinear advection-diffusion |
 | **Allen-Cahn** | `AllenCahn1D/` | ✅ Complete | Phase field dynamics, cubic nonlinearity, SICN/CNAB schemes |
 | **Kawahara** | `Kawahara/` | ✅ Complete | Dispersive dynamics, multiple conservation formulations, parameter updates |
+| **2D Heat** | `Heat2D/` | ✅ Complete | 2D Classic parabolic PDE |
 
 All solvers are:
 
